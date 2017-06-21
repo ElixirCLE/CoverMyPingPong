@@ -12,23 +12,30 @@
   </head>
 
   <body>
-    <div class="container">
-      <header class="header">
-        <nav role="navigation">
-          <ul class="nav nav-pills pull-right">
-            <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
-          </ul>
-        </nav>
-        <span class="logo"></span>
+    <div class="container grid-960">
+      <br>
+      <header class="navbar">
+        <section class="navbar-section">
+          <a href="/" class="navbar-brand mr-10 pr-10">CoverMyPingPong</a>
+        </section>
+        <section class="navbar-center"></section>
+        <section class="navbar-section">
+          <%= link "Matches", to: "/matches", class: "btn btn-link" %>
+          <%= link "Players", to: "/users", class: "btn btn-link" %>
+        </section>
       </header>
+      <br><br>
 
-      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+      <div class="columns">
+        <div class="column col-12">
 
-      <main role="main">
+        <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+        <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+
         <%= render @view_module, @view_template, assigns %>
-      </main>
 
+        </div> <!-- /col-12 -->
+      </div> <!-- /columns -->
     </div> <!-- /container -->
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>

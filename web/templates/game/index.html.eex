@@ -1,0 +1,5 @@
+<h1>Recent Matches</h1>
+<%= for match <- @recent_matches do %>
+  <%= match.player %>
+  <%= match.opponent %>
+<% end %>

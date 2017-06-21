@@ -1,36 +1,45 @@
-<div class="jumbotron">
-  <h2><%= gettext "Welcome to %{name}", name: "Phoenix!" %></h2>
-  <p class="lead">A productive web framework that<br />does not compromise speed and maintainability.</p>
+<div class="column col-12">
+  <figure class="figure">
+    <img src="<%= static_path(@conn, "/images/pingpong_fast.gif") %>" class="centered">
+    <figcaption class="figure-caption text-center">Future CMM'ers</figcaption>
+  </figure>
 </div>
+<div class="column col-12 text-center">
+  <br><br><br>
+  <h2>Last 5 Matches</h2>
+  <br><br>
+  <%= for match <- @recent_matches do %>
+    <div id="match" class="columns col-oneline">
+      <div id="player" class="column col-5 <%= if match.player_score > match.opponent_score do %>match-winner <% else %>match-loser <% end %>">
+        <div class="player-name"><%= match.player %></div>
+        <div class="player-score">
+          <p class="points-num"><%= match.player_score %></p>
+          <p class="points-text">points</p>
+        </div>
 
-<div class="row marketing">
-  <div class="col-lg-6">
-    <h4>Resources</h4>
-    <ul>
-      <li>
-        <a href="http://phoenixframework.org/docs/overview">Guides</a>
-      </li>
-      <li>
-        <a href="https://hexdocs.pm/phoenix">Docs</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
-      </li>
-    </ul>
-  </div>
+        <%= if match.player_score > match.opponent_score do %>
+          <div class="winner-bar">won</div>
+        <% else %>
+          <div class="loser-bar">lost</div>
+        <% end %>
+      </div> <!-- /Player -->
 
-  <div class="col-lg-6">
-    <h4>Help</h4>
-    <ul>
-      <li>
-        <a href="http://groups.google.com/group/phoenix-talk">Mailing list</a>
-      </li>
-      <li>
-        <a href="http://webchat.freenode.net/?channels=elixir-lang">#elixir-lang on freenode IRC</a>
-      </li>
-      <li>
-        <a href="https://twitter.com/elixirphoenix">@elixirphoenix</a>
-      </li>
-    </ul>
-  </div>
+      <div id="versus" class="column col-2">VS</div> <!-- /Versus -->
+
+      <div id="opponent" class="column col-5 <%= if match.player_score < match.opponent_score do %>match-winner <% else %>match-loser <% end %>">
+        <div class="player-name"><%= match.opponent %></div>
+        <div class="player-score">
+          <p class="points-num"><%= match.opponent_score %></p>
+          <p class="points-text">points</p>
+        </div>
+
+        <%= if match.player_score < match.opponent_score do %>
+          <div class="winner-bar">won</div>
+        <% else %>
+          <div class="loser-bar">lost</div>
+        <% end %>
+      </div><!-- /Opponent -->
+
+    </div>
+  <% end %>
 </div>

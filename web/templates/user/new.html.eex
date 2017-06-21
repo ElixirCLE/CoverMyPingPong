@@ -1,0 +1,8 @@
+<h1>Add A New Player</h1>
+<%= form_for @changeset, user_path(@conn, :new), fn f -> %>
+  <label>
+    Name: <%= text_input f, :name %>
+  </label>
+
+  <%= submit "Add" %>
+<% end %>

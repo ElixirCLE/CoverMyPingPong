@@ -1,0 +1,89 @@
+/* This file is for your main application css. */
+#match {
+  margin-bottom: 6em;
+}
+#player, #opponent {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  min-height: 100px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+
+  .player-name {
+    display: flex;
+    position: absolute;
+    left: 0;
+    width: 80%;
+    height: 80%;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    font-size: 2em;
+    color: #000;
+  }
+  .player-score {
+    display: flex;
+    position: absolute;
+    right: 0;
+    width: 20%;
+    height: 80%;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    border-left: 1px solid lightgrey;
+    font-size: 2em;
+    font-weight: bold;
+    color: #000;
+
+    .points-text {
+      position: absolute;
+      bottom: .35em;
+      font-size: .45em;
+      font-weight: normal;
+      color: grey;
+    }
+  }
+}
+.winner-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  background: #32b643;
+  color: #FFF;
+}
+.loser-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  background: #e85600;
+  color: #FFF;
+}
+.match-loser {
+  border-color: #e85600 !important;
+
+  .player-score {
+    border-left-color: #e85600 !important;
+    background: rgba(232, 86, 0, 0.10);
+  }
+}
+.match-winner {
+  border-color: #32b643 !important;
+
+  .player-score {
+    border-left-color: #32b643 !important;
+    background: rgba(50, 182, 67, 0.10);
+  }
+}
+#versus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  font-size: 2em;
+  font-style: italic;
+}

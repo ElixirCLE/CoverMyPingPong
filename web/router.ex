@@ -17,6 +17,15 @@ defmodule CoverMyPingPong.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+
+    get "/matches", GameController, :index
+    get "/matches/new", GameController, :new
+    post "/matches/new", GameController, :create
+
+
+    get "/users", UserController, :index
+    get "/users/new", UserController, :new
+    post "/users/new", UserController, :create
   end
 
   # Other scopes may use custom stacks.
