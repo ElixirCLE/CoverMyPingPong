@@ -15,7 +15,7 @@ use Mix.Config
 config :cover_my_ping_pong, CoverMyPingPong.Endpoint,
   http: [port: {:system, "PORT"}],
   url: [scheme: "https", host: "covermypingpong.herokuapp.com", port: 443],
-  force_ssl: [rewrite_on: [:x_forwarded_proto]
+  force_ssl: [rewrite_on: [:x_forwarded_proto]],
   cache_static_manifest: "priv/static/manifest.json",
   secret_key_base: System.get_env("SECRET_KEY_BASE")
 
