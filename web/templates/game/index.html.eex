@@ -1,2 +1,3 @@
 <h3>Add a new match</h3>
 <%= link "New Match", to: "/matches/new", class: "btn btn-link" %>
+
