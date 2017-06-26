@@ -1,5 +1,2 @@
-<h1>Recent Matches!</h1>
-<%= for match <- @recent_matches do %>
-  <%= match.player %>
-  <%= match.opponent %>
-<% end %>
+<h3>Add a new match</h3>
+<%= link "New Match", to: "/matches/new", class: "btn btn-link" %>

@@ -6,40 +6,44 @@
 </div>
 <div class="column col-12 text-center">
   <br><br><br>
-  <h2>Last 5 Matches</h2>
-  <br><br>
+  <h2>Leaderboard</h2>
+  <p>Leaderboard goes here</p>
+</div>
+<div class="">
+  <div id="match-columns" class="columns">
+    <div class="column col-12 text-center"><h2>Recent Matches</h2></div>
   <%= for match <- @recent_matches do %>
-    <div id="match" class="columns col-oneline">
-      <div id="player" class="column col-5 <%= if match.player_score > match.opponent_score do %>match-winner <% else %>match-loser <% end %>">
-        <div class="player-name"><%= match.player %></div>
-        <div class="player-score">
-          <p class="points-num"><%= match.player_score %></p>
-          <p class="points-text">points</p>
-        </div>
-
+  <div id="match" class="column col-5 text-center">
+    <div class="match-info">
+      <div class="match-date"><%= Timex.format!(match.played_at_date, "%e %B %Y", :strftime) %></div>
+      <div class="match-loc">Cleveland</div>
+    </div> <!-- Match info -->
+    <div class="match-stats">
+      <div class="match-player">
         <%= if match.player_score > match.opponent_score do %>
-          <div class="winner-bar">won</div>
+          <span class="trophy">&#x1f3c6;</span>
         <% else %>
-          <div class="loser-bar">lost</div>
+          <span class="trophy">&#x1F948;</span>
         <% end %>
-      </div> <!-- /Player -->
-
-      <div id="versus" class="column col-2">VS</div> <!-- /Versus -->
-
-      <div id="opponent" class="column col-5 <%= if match.player_score < match.opponent_score do %>match-winner <% else %>match-loser <% end %>">
-        <div class="player-name"><%= match.opponent %></div>
-        <div class="player-score">
-          <p class="points-num"><%= match.opponent_score %></p>
-          <p class="points-text">points</p>
-        </div>
-
+        <p><%= match.player %></p>
+      </div>
+      <div class="match-score">
+        <span class="player-score"><%= match.player_score %></span>
+        <span class="dash">–</span>
+        <span class="opponent-score"><%= match.opponent_score %></span>
+        <p class="final">final</p>
+      </div>
+      <div class="match-opponent">
         <%= if match.player_score < match.opponent_score do %>
-          <div class="winner-bar">won</div>
+          <span class="trophy">&#x1f3c6;</span>
         <% else %>
-          <div class="loser-bar">lost</div>
+          <span class="trophy">&#x1F948;</span>
         <% end %>
-      </div><!-- /Opponent -->
-
-    </div>
+        <p><%= match.opponent %></p>
+      </div>
+    </div> <!-- Match stats -->
+  </div> <!-- Match -->
   <% end %>
+</div>
+</div>
 </div>

@@ -1,10 +1,27 @@
 <h3>Add a match played</h3>
 
 <%= form_for @changeset, game_path(@conn, :new), fn f -> %>
+  <div class="form-group">
+    <label class="form-label">Match Played On</label>
+    <input class="form-input input-lg" type="date" id="game_played_at_date" name="game[played_at_date]">
+  </div>
+
+  <div class="form-group">
+    <label class="form-label">Match Location</label>
+    <%= text_input f, :location, class: "form-input input-lg" %>
+  </div>
+
   <div class="columns col-oneline">
     <div class="column col-9 form-group">
-      <label class="form-label">Player Name</label>
-      <%= text_input f, :player, class: "form-input input-lg" %>
+      <label class="form-label">Player</label>
+
+      <input id="game_player_id" type="text" list="player" class="form-input input-lg" autocomplete="off">
+      <datalist id="player">
+        <%= for user <- @users do %>
+          <option data-value="<%= user.id %>"><%= user.name %></option>
+        <% end %>
+      </datalist>
+      <input type="hidden" id="game_player_id-hidden" name="game[player_id]">
     </div>
 
     <div class="column col-3 form-group">
@@ -16,7 +33,14 @@
   <div class="columns col-oneline">
     <div class="column col-9 form-group">
       <label class="form-label">Opponent Name</label>
-      <%= text_input f, :opponent, class: "form-input input-lg" %>
+
+      <input id="game_opponent_id" type="text" list="opponent" class="form-input input-lg" autocomplete="off">
+      <datalist id="opponent">
+        <%= for user <- @users do %>
+          <option data-value="<%= user.id %>"><%= user.name %></option>
+        <% end %>
+      </datalist>
+      <input type="hidden" id="game_opponent_id-hidden" name="game[opponent_id]">
     </div>
 
     <div class="column col-3 form-group">
@@ -27,7 +51,14 @@
 
   <div class="form-group">
     <label class="form-label">Match Winner</label>
-    <%= select(f, :match_winner_id, @users, prompt: "Choose the winner", class: "form-select select-lg") %>
+
+    <input id="game_match_winner_id" type="text" list="match-winner" class="form-input input-lg" autocomplete="off">
+    <datalist id="match-winner">
+      <%= for user <- @users do %>
+        <option data-value="<%= user.id %>"><%= user.name %></option>
+      <% end %>
+    </datalist>
+    <input type="hidden" id="game_match_winner_id-hidden" name="game[match_winner_id]">
   </div>
 
   <div class="form-group">

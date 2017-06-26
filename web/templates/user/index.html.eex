@@ -1,1 +1,2 @@
-<h1>All users here</h1>
+<h3>Add a new player</h3>
+<%= link "New Player", to: "/users/new", class: "btn btn-link" %>

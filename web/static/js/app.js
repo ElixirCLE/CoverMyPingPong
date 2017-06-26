@@ -19,3 +19,61 @@ import "phoenix_html"
 // paths "./socket" or full ones "web/static/js/socket".
 
 // import socket from "./socket"
+
+document.querySelector('input[list]').addEventListener('input', function(e) {
+  var input = e.target,
+    list = input.getAttribute('list'),
+    options = document.querySelectorAll('#' + list + ' option'),
+    hiddenInput = document.getElementById(input.getAttribute('id') + '-hidden'),
+    label = input.value;
+
+  hiddenInput.value = label;
+  console.log(hiddenInput.value);
+
+  for(var i = 0; i < options.length; i++) {
+    var option = options[i];
+
+    if(option.innerText === label) {
+      hiddenInput.value = option.getAttribute('data-value');
+      break;
+    }
+  }
+})
+document.querySelector('#game_opponent_id').addEventListener('input', function(e) {
+  var input = e.target,
+    list = input.getAttribute('list'),
+    options = document.querySelectorAll('#' + list + ' option'),
+    hiddenInput = document.getElementById(input.getAttribute('id') + '-hidden'),
+    label = input.value;
+
+  hiddenInput.value = label;
+  console.log(hiddenInput.value);
+
+  for(var i = 0; i < options.length; i++) {
+    var option = options[i];
+
+    if(option.innerText === label) {
+      hiddenInput.value = option.getAttribute('data-value');
+      break;
+    }
+  }
+})
+document.querySelector('#game_match_winner_id').addEventListener('input', function(e) {
+  var input = e.target,
+    list = input.getAttribute('list'),
+    options = document.querySelectorAll('#' + list + ' option'),
+    hiddenInput = document.getElementById(input.getAttribute('id') + '-hidden'),
+    label = input.value;
+
+  hiddenInput.value = label;
+  console.log(hiddenInput.value);
+
+  for(var i = 0; i < options.length; i++) {
+    var option = options[i];
+
+    if(option.innerText === label) {
+      hiddenInput.value = option.getAttribute('data-value');
+      break;
+    }
+  }
+})
