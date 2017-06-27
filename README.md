@@ -1,6 +1,6 @@
 # CoverMyPingPong
 
-For everything Ping Pong
+For everything Ping Pong:
 - Matches
 - Players
 - Leaderboards
