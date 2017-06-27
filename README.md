@@ -1,6 +1,9 @@
 # CoverMyPingPong
 
 For everything Ping Pong
+- Matches
+- Players
+- Leaderboards
 
 To start your Phoenix app:
 
