@@ -16,12 +16,15 @@ defmodule CoverMyPingPong.Game do
     timestamps()
   end
 
+  @all_params [:player, :opponent, :player_score, :opponent_score, :match_winner_id, :player_id, :opponent_id, :played_at_date, :location]
+  @required_params [:player_id, :opponent_id, :player_score, :opponent_score, :match_winner_id, :played_at_date, :location]
+
   @doc """
   Builds a changeset based on the `struct` and `params`.
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:player, :opponent, :player_score, :opponent_score, :match_winner_id, :played_at_date, :player_id, :opponent_id, :location])
-    |> validate_required([:player_id, :opponent_id, :player_score, :opponent_score, :match_winner_id, :played_at_date, :location])
+    |> cast(params, @all_params)
+    |> validate_required(@required_params)
   end
 end

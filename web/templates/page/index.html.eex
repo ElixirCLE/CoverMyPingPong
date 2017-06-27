@@ -12,38 +12,9 @@
 <div class="">
   <div id="match-columns" class="columns">
     <div class="column col-12 text-center"><h2>Recent Matches</h2></div>
-  <%= for match <- @recent_matches do %>
-  <div id="match" class="column col-5 text-center">
-    <div class="match-info">
-      <div class="match-date"><%= Timex.format!(match.played_at_date, "%e %B %Y", :strftime) %></div>
-      <div class="match-loc">Cleveland</div>
-    </div> <!-- Match info -->
-    <div class="match-stats">
-      <div class="match-player">
-        <%= if match.player_score > match.opponent_score do %>
-          <span class="trophy">&#x1f3c6;</span>
-        <% else %>
-          <span class="trophy">&#x1F948;</span>
-        <% end %>
-        <p><%= match.player %></p>
-      </div>
-      <div class="match-score">
-        <span class="player-score"><%= match.player_score %></span>
-        <span class="dash">–</span>
-        <span class="opponent-score"><%= match.opponent_score %></span>
-        <p class="final">final</p>
-      </div>
-      <div class="match-opponent">
-        <%= if match.player_score < match.opponent_score do %>
-          <span class="trophy">&#x1f3c6;</span>
-        <% else %>
-          <span class="trophy">&#x1F948;</span>
-        <% end %>
-        <p><%= match.opponent %></p>
-      </div>
-    </div> <!-- Match stats -->
-  </div> <!-- Match -->
-  <% end %>
-</div>
-</div>
+      <%= for match <- @recent_matches do %>
+        <%= render "_match.html", match: match %>
+      <% end %>
+    </div>
+  </div> <!-- Match columns -->
 </div>

@@ -1,7 +1,7 @@
 defmodule CoverMyPingPong.UserController do
   use CoverMyPingPong.Web, :controller
 
-  alias CoverMyPingPong.User
+  alias CoverMyPingPong.{User}
 
   def index(conn, _params) do
     render conn, "index.html"

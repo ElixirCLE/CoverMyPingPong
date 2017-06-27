@@ -1,0 +1,30 @@
+<div id="match" class="column col-5 text-center">
+  <div class="match-info">
+    <div class="match-date"><%= Timex.format!(@match.played_at_date, "%e %B %Y", :strftime) %></div>
+    <div class="match-loc"><%= @match.location %></div>
+  </div> <!-- Match info -->
+  <div class="match-stats">
+    <div class="match-player">
+      <%= if @match.player_score > @match.opponent_score do %>
+        <span class="trophy">&#x1f3c6;</span>
+      <% else %>
+        <span class="trophy">&#x1F948;</span>
+      <% end %>
+      <p><%= @match.user_player.name %></p>
+    </div>
+    <div class="match-score">
+      <span class="player-score"><%= @match.player_score %></span>
+      <span class="dash">–</span>
+      <span class="opponent-score"><%= @match.opponent_score %></span>
+      <p class="final">final</p>
+    </div>
+    <div class="match-opponent">
+      <%= if @match.player_score < @match.opponent_score do %>
+        <span class="trophy">&#x1f3c6;</span>
+      <% else %>
+        <span class="trophy">&#x1F948;</span>
+      <% end %>
+      <p><%= @match.user_opponent.name %></p>
+    </div>
+  </div> <!-- Match stats -->
+</div> <!-- Match -->
