@@ -21,10 +21,9 @@ defmodule CoverMyPingPong.GameController do
   def create(conn, %{"game" => game_params}) do
     changeset = Game.changeset(%Game{}, game_params)
 
-    match_winner = Repo.get!(User, changeset.changes.match_winner_id)
-
     case Repo.insert(changeset) do
-      {:ok, _game} ->
+      {:ok, game} ->
+        match_winner = Repo.get!(User, game.match_winner_id)
         update_match_winner(match_winner)
 
         conn
