@@ -21,18 +21,6 @@ defmodule CoverMyPingPong.GameTest do
       assert changeset.valid?
     end
 
-    test "is invalid without a player id" do
-      attrs = Map.delete(@valid_attrs, :player_id)
-      changeset = Game.changeset(%Game{}, attrs)
-      refute changeset.valid?
-    end
-
-    test "is invalid without an opponent id" do
-      attrs = Map.delete(@valid_attrs, :opponent_id)
-      changeset = Game.changeset(%Game{}, attrs)
-      refute changeset.valid?
-    end
-
     Enum.each @valid_attrs, fn {attr, value} ->
       test "is invalid without #{attr}" do
         attrs = Map.delete(@valid_attrs, unquote(attr))
