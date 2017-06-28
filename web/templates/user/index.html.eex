@@ -1,2 +1,22 @@
-<h3>Add a new player</h3>
-<%= link "New Player", to: "/users/new", class: "btn btn-link" %>
+<h3>Listing Players</h3>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= for user <- @users do %>
+      <tr>
+        <td><%= user.name %></td>
+        <td class="text-right">
+          <%= link "Edit", to: user_path(@conn, :edit, user), class: "btn btn-default btn-xs" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link "New Player", to: user_path(@conn, :new), class: "btn btn-link" %>

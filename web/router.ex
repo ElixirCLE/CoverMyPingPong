@@ -18,14 +18,8 @@ defmodule CoverMyPingPong.Router do
 
     get "/", PageController, :index
 
-    get "/matches", GameController, :index
-    get "/matches/new", GameController, :new
-    post "/matches/new", GameController, :create
-
-
-    get "/users", UserController, :index
-    get "/users/new", UserController, :new
-    post "/users/new", UserController, :create
+    resources "/matches", GameController, only: [:index, :new, :create]
+    resources "/users", UserController, except: [:delete]
   end
 
   # Other scopes may use custom stacks.
