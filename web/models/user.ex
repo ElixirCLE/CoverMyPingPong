@@ -25,5 +25,6 @@ defmodule CoverMyPingPong.User do
     struct
     |> cast(params, @all_params)
     |> validate_required(@required_params)
+    |> unique_constraint(:name)
   end
 end

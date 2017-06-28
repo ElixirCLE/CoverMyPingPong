@@ -21,7 +21,8 @@ defmodule CoverMyPingPong.UserController do
         |> put_flash(:info, "User successfully added!")
         |> redirect(to: user_path(conn, :index))
       {:error, changeset} ->
-        render(conn, "new.html", changeset: changeset)
+        conn
+        |> render("new.html", changeset: changeset)
     end
   end
 end
