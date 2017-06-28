@@ -30,7 +30,7 @@ defmodule CoverMyPingPong.GameTest do
     end
 
     test "with invalid attributes is invalid" do
-      changeset = Game.gameset(%Game{}, @invalid_attrs)
+      changeset = Game.changeset(%Game{}, @invalid_attrs)
       refute changeset.valid?
     end
   end
