@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ElixirCLE/CoverMyPingPong.svg?branch=master)](https://travis-ci.org/ElixirCLE/CoverMyPingPong)
+
 # CoverMyPingPong
 
 For everything Ping Pong:
@@ -5,7 +7,7 @@ For everything Ping Pong:
 - Players
 - Leaderboards
 
-To start your Phoenix app:
+To start CoverMyPingPong:
 
   * Install dependencies with `mix deps.get`
   * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
@@ -13,5 +15,3 @@ To start your Phoenix app:
   * Start Phoenix endpoint with `mix phoenix.server`
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
-
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
