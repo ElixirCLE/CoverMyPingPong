@@ -35,7 +35,7 @@ defmodule CoverMyPingPong.GameTest do
 
     Enum.each @valid_attrs, fn {attr, value} ->
       test "is invalid without #{attr}" do
-        attrs = Map.delete(@valid_attrs, attr)
+        attrs = Map.delete(@valid_attrs, unquote(attr))
         changeset = Game.changeset(%Game{}, attrs)
         refute changeset.valid?
       end
