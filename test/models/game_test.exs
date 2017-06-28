@@ -9,7 +9,6 @@ defmodule CoverMyPingPong.GameTest do
     opponent_id: 2,
     player_score: Enum.random(0..21),
     opponent_score: Enum.random(0..21),
-    match_winner_id: 1,
     played_at_date: Timex.today,
     location: Enum.random(["Columbus", "Cleveland"])
   }
