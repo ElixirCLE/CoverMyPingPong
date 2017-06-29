@@ -4,7 +4,7 @@ defmodule CoverMyPingPong.UserController do
   alias CoverMyPingPong.{User}
 
   def index(conn, _params) do
-    users = User |> Repo.all
+    users = User |> User.ordered |> Repo.all
     render conn, "index.html", users: users
   end
 

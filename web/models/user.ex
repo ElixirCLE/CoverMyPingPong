@@ -27,4 +27,12 @@ defmodule CoverMyPingPong.User do
     |> validate_required(@required_params)
     |> unique_constraint(:name)
   end
+
+  @doc """
+  Creates a query that orders users by name.
+  """
+  def ordered(query) do
+    from u in query,
+      order_by: u.name
+  end
 end
