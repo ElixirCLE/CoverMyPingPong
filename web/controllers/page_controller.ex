@@ -12,4 +12,8 @@ defmodule CoverMyPingPong.PageController do
 
     render conn, "index.html", recent_matches: recent_matches
   end
+
+  def rules(conn, _params) do
+    render conn, "rules.html"
+  end
 end
