@@ -20,7 +20,20 @@
         </section>
         <section class="navbar-center"></section>
         <section class="navbar-section">
-          <%= link "Matches", to: "/matches", class: "btn btn-link" %>
+          <div class="dropdown">
+            <div class="btn-group">
+              <%= link "Matches", to: game_path(@conn, :index), class: "btn btn-link" %>
+              <a class="btn btn-link dropdown-toggle" tabindex="0"><i class="icon icon-caret"></i></a>
+              <ul class="menu">
+                <li class="menu-item">
+                  <%= link "View List", to: game_path(@conn, :index), class: "btn btn-link" %>
+                </li>
+                <li class="menu-item">
+                  <%= link "New Match", to: game_path(@conn, :new), class: "btn btn-link" %>
+                </li>
+              </ul>
+            </div>
+          </div>
           <div class="dropdown">
             <div class="btn-group">
               <%= link "Players", to: user_path(@conn, :index), class: "btn btn-link" %>
@@ -28,6 +41,8 @@
               <ul class="menu">
                 <li class="menu-item">
                   <%= link "View List", to: user_path(@conn, :index), class: "btn btn-link" %>
+                </li>
+                <li class="menu-item">
                   <%= link "New Player", to: user_path(@conn, :new), class: "btn btn-link" %>
                 </li>
               </ul>
