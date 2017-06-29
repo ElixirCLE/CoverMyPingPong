@@ -17,6 +17,7 @@ defmodule CoverMyPingPong.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    get "/rules", PageController, :rules
 
     resources "/matches", GameController, only: [:index, :new, :create]
     resources "/users", UserController, except: [:delete]
