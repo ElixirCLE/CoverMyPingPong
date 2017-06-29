@@ -4,7 +4,9 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th></th>
+      <th class="text-right">
+        <%= link "New Player", to: user_path(@conn, :new), class: "btn btn-primary btn-xs" %>
+      </th>
     </tr>
   </thead>
   <tbody>
@@ -19,4 +21,3 @@
   </tbody>
 </table>
 
-<%= link "New Player", to: user_path(@conn, :new), class: "btn btn-link" %>
