@@ -29,6 +29,7 @@ defmodule CoverMyPingPong.Web do
   def controller do
     quote do
       use Phoenix.Controller
+      use ScoutApm.Instrumentation
 
       alias CoverMyPingPong.Repo
       import Ecto

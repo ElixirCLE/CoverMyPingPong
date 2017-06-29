@@ -19,7 +19,7 @@ defmodule CoverMyPingPong.Mixfile do
   def application do
     [mod: {CoverMyPingPong, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :ex_machina, :timex, :params]]
+                    :phoenix_ecto, :postgrex, :ex_machina, :timex, :params, :scout_apm]]
   end
 
   # Specifies which paths to compile per environment.
@@ -40,7 +40,8 @@ defmodule CoverMyPingPong.Mixfile do
      {:cowboy, "~> 1.0"},
      {:ex_machina, "~> 2.0"},
      {:timex, "~> 3.0"},
-     {:params, "~> 2.0.2"}
+     {:params, "~> 2.0.2"},
+     {:scout_apm, "~> 0.0"}
     ]
   end
 

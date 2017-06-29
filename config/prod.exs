@@ -24,7 +24,9 @@ config :cover_my_ping_pong, CoverMyPingPong.Repo,
   adapter: Ecto.Adapters.Postgres,
   url: System.get_env("DATABASE_URL"),
   pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
-  ssl: true
+  ssl: true,
+  loggers: [{Ecto.LogEntry, :log, []},
+            {ScoutApm.Instruments.EctoLogger, :log, []}]
 
 # Do not print debug messages in production
 config :logger, level: :info
@@ -62,7 +64,8 @@ config :logger, level: :info
 #
 #     config :cover_my_ping_pong, CoverMyPingPong.Endpoint, server: true
 #
-
-# Finally import the config/prod.secret.exs
-# which should be versioned separately.
+# Finally import the config/prod.secret.exs which should be versioned separately.
 # import_config "prod.secret.exs"
+
+# Import Scout APM
+import_config "scout_apm.exs"
