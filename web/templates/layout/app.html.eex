@@ -22,6 +22,7 @@
         <section class="navbar-section">
           <%= link "Matches", to: "/matches", class: "btn btn-link" %>
           <%= link "Players", to: "/users", class: "btn btn-link" %>
+          <%= link "Rules", to: page_path(@conn, :rules), class: "btn btn-link" %>
         </section>
       </header>
       <br><br>
