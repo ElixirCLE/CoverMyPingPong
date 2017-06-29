@@ -1,2 +1,11 @@
-<h3>Add a new match</h3>
-<%= link "New Match", to: "/matches/new", class: "btn btn-link" %>
+<h3>Listing Matches</h3>
+
+<div class="">
+  <div id="match-columns" class="columns">
+    <%= for match <- @matches do %>
+      <%= render CoverMyPingPong.PageView, "_match.html", match: match %>
+    <% end %>
+  </div>
+</div>
+
+<%= link "New Match", to: game_path(@conn, :new), class: "btn btn-link" %>

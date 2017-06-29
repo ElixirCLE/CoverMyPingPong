@@ -4,10 +4,10 @@ defmodule CoverMyPingPong.GameController do
   alias CoverMyPingPong.{Game, User}
 
   def index(conn, _params) do
-    query = from(g in Game, order_by: g.inserted_at)
-    recent_matches = Repo.all(query)
-
-    render conn, "index.html", recent_matches: Repo.all(Game)
+    matches = Game
+              |> Game.ordered_reverse
+              |> Repo.all
+    render conn, "index.html", matches: matches
   end
 
   def new(conn, _params) do

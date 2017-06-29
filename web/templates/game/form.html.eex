@@ -1,0 +1,53 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <div class="form-group">
+    <label class="form-label">Match Played On</label>
+    <input class="form-input input-lg" type="date" id="game_played_at_date" name="game[played_at_date]">
+  </div>
+
+  <div class="form-group">
+    <label class="form-label">Match Location</label>
+    <%= text_input f, :location, class: "form-input input-lg" %>
+  </div>
+
+  <div class="columns col-oneline">
+    <div class="column col-9 form-group">
+      <label class="form-label">Player</label>
+
+      <input id="game_player_id" type="text" list="player" class="form-input input-lg" autocomplete="off">
+      <datalist id="player">
+        <%= for user <- @users do %>
+          <option data-value="<%= user.id %>"><%= user.name %></option>
+        <% end %>
+      </datalist>
+      <input type="hidden" id="game_player_id-hidden" name="game[player_id]">
+    </div>
+
+    <div class="column col-3 form-group">
+      <label class="form-label">Player Score</label>
+      <%= number_input f, :player_score, class: "form-input input-lg" %>
+    </div>
+  </div>
+
+  <div class="columns col-oneline">
+    <div class="column col-9 form-group">
+      <label class="form-label">Opponent Name</label>
+
+      <input id="game_opponent_id" type="text" list="opponent" class="form-input input-lg" autocomplete="off">
+      <datalist id="opponent">
+        <%= for user <- @users do %>
+          <option data-value="<%= user.id %>"><%= user.name %></option>
+        <% end %>
+      </datalist>
+      <input type="hidden" id="game_opponent_id-hidden" name="game[opponent_id]">
+    </div>
+
+    <div class="column col-3 form-group">
+      <label class="form-label">Opponent Score</label>
+      <%= number_input f, :opponent_score, class: "form-input input-lg" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Add Match", class: "btn btn-primary btn-lg" %>
+  </div>
+<% end %>
