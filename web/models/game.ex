@@ -29,6 +29,15 @@ defmodule CoverMyPingPong.Game do
     |> put_winner
   end
 
+  @doc """
+  Create a query that returns Games in reverse order.
+  """
+  def ordered_reverse(query) do
+    from g in query,
+      order_by: [desc: g.played_at_date],
+      preload: [:user_player, :user_opponent, :user_winner]
+  end
+
   defp put_winner(changeset) do
     case changeset do
       %Ecto.Changeset{valid?: true, changes: %{player_id: p_id, player_score: p_score, opponent_id: o_id, opponent_score: o_score}} ->

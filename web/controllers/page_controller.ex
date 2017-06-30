@@ -4,7 +4,7 @@ defmodule CoverMyPingPong.PageController do
   alias CoverMyPingPong.{Game, User}
 
   def index(conn, _params) do
-    query = from(g in Game, order_by: [desc: g.inserted_at], limit: 4)
+    query = from(g in Game, order_by: [desc: g.played_at_date], limit: 4)
     recent_matches = Repo.all(query)
                      |> Repo.preload(:user_player)
                      |> Repo.preload(:user_opponent)
