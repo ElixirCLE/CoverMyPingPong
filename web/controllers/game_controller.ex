@@ -3,11 +3,21 @@ defmodule CoverMyPingPong.GameController do
 
   alias CoverMyPingPong.{Game, User}
 
-  def index(conn, _params) do
+  def index(conn, params) do
+    page = Game
+           |> Game.distinct_dates
+           |> Repo.all
+           |> Repo.paginate(params)
+
     matches = Game
-              |> Game.ordered_reverse
+              |> where(played_at_date: ^(page.entries |> List.first))
               |> Repo.all
-    render conn, "index.html", matches: matches
+              |> Repo.preload(:user_player)
+              |> Repo.preload(:user_opponent)
+              |> Repo.preload(:user_winner)
+
+    render conn, "index.html", matches: matches,
+      page_number: page.page_number, total_pages: page.total_pages
   end
 
   def new(conn, _params) do
