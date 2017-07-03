@@ -3,6 +3,14 @@
 <div class="text-right" style="padding-bottom: 10px;">
   <%= link "New Match", to: game_path(@conn, :new), class: "btn btn-primary btn-xs" %>
 </div>
+<ul class="pagination">
+  <li class="page-item page-prev">
+    <%= raw(prev_button(@page_number, @total_pages)) %>
+  </li>
+  <li class="page-item page-next">
+    <%= raw(next_button(@page_number, @total_pages)) %>
+  </li>
+</ul>
 <div class="">
   <div id="match-columns" class="columns">
     <%= for match <- @matches do %>

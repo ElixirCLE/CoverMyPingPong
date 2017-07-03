@@ -38,6 +38,17 @@ defmodule CoverMyPingPong.Game do
       preload: [:user_player, :user_opponent, :user_winner]
   end
 
+  @doc """
+  Creates a query that returns all of the distinct dates on which
+  games were played. Most recent dates are listed first
+  """
+  def distinct_dates(query) do
+    from g in query,
+      distinct: true,
+      select: g.played_at_date,
+      order_by: [desc: :played_at_date]
+  end
+
   defp put_winner(changeset) do
     case changeset do
       %Ecto.Changeset{valid?: true, changes: %{player_id: p_id, player_score: p_score, opponent_id: o_id, opponent_score: o_score}} ->
